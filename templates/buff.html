@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles %}
+<head lang="en">
+    <meta charset="UTF-8">
+    <link type="text/css"
+          href="{% static "bootstrap.min.css" %}" rel="stylesheet">
+    <link type="text/css"
+          href="{% static "signup.css" %}" rel="stylesheet">
+    <title>报名页面</title>
+</head>
+<body>
+<div class="container">
+    <form class="form-signin" role="form" action="/join/" method="post">
+        <img src="{% static "assets/img/signupheader.png" %}" class="img-responsive" alt="Responsive image">
+        <input type="text" class="form-control" placeholder="姓名" name="fullname" required autofocus>
+        <input type="text" class="form-control" placeholder="班级" name="myclass" required>
+        <input type="text" class="form-control" placeholder="学号" name="num" required autofocus>
+        <input type="text" class="form-control" placeholder="邮箱" name="email" required autofocus>
+        <input type="text" class="form-control" placeholder="联系电话" name="phonenum" required autofocus>
+        <input type="text" class="form-control" placeholder="宿舍号" name="dorm" required autofocus>
+        <textarea class="form-control" placeholder="备注信息" name="describe" rows="5"></textarea>
+        <select class="form-control" name="project">
+            <option>请选择活动项目</option>
+            {% for p in project %}
+                <option>{{ p.name }}</option>
+            {% endfor %}
+        </select>
+        <div class="checkbox">
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">提交</button>
+    </form>
+</div>
+</body>
+</html>

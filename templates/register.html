@@ -1,0 +1,81 @@
+{% extends "base1.html" %}
+{% load staticfiles %}
+{% block title %}注册{% endblock %}
+
+<body class="{% block bodyclass %}login tooltips{% endblock %}">
+    {% block content %}
+        <div class="login-header text-center">
+			<img src="{% static "assets/img/logo-login.png" %}" class="logo" alt="Logo">
+		</div>
+		<div class="login-wrapper">
+			<form action="/toregister/" role="form" method="post">
+                {% csrf_token %}
+				<div class="form-group has-feedback lg left-feedback no-label">
+				  <input type="text" class="form-control no-border input-lg rounded"
+                         name="fullname" placeholder="姓名" autofocus>
+				  <span class="fa fa-male form-control-feedback"></span>
+				</div>
+				<div class="form-group has-feedback lg left-feedback no-label">
+				  <input type="text" class="form-control no-border input-lg rounded"
+                         name="username" placeholder="用户名">
+				  <span class="fa fa-user form-control-feedback"></span>
+				</div>
+				<div class="form-group has-feedback lg left-feedback no-label">
+				  <input type="email" class="form-control no-border input-lg rounded"
+                         name="email" placeholder="邮箱">
+				  <span class="fa fa-envelope form-control-feedback"></span>
+				</div>
+                <div class="form-group has-feedback lg left-feedback no-label">
+				  <input type="text" class="form-control no-border input-lg rounded"
+                         name="num" placeholder="学号">
+				  <span class="fa fa-envelope form-control-feedback"></span>
+				</div>
+				<div class="form-group has-feedback lg left-feedback no-label">
+				  <input type="password" class="form-control no-border input-lg rounded"
+                         name="password" placeholder="密码">
+				  <span class="fa fa-lock form-control-feedback"></span>
+				</div>
+				<div class="form-group has-feedback lg left-feedback no-label">
+				  <input type="password" class="form-control no-border input-lg rounded"
+                         placeholder="再次输入密码">
+				  <span class="fa fa-unlock form-control-feedback"></span>
+				</div>
+                <div class="form-group has-feedback lg left-feedback no-label">
+				   <textarea class="form-control no-border input-lg rounded" placeholder="自我描述" name="describe" rows="3"></textarea>
+				  <span class="fa fa-unlock form-control-feedback"></span>
+				</div>
+				<div class="form-group">
+				  <div class="checkbox">
+					<label class="inline-popups">
+					  <input type="checkbox" class="i-yellow-flat"> 我同意并接受 <a href="#text-popup" data-effect="mfp-zoom-in">相关条款</a>
+					</label>
+				  </div>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-warning btn-lg btn-perspective btn-block">注册</button>
+				</div>
+			</form>
+		</div><!-- /.login-wrapper -->
+
+
+		<!-- Text popup -->
+		<div id="text-popup" class="white-popup wide mfp-with-anim mfp-hide">
+			<h4>TERMS</h4>
+			<p>
+			本网站只用于科协赛事的报名
+			</p>
+			<p>
+
+			</p>
+			<hr />
+			<h4>CONDITIONS</h4>
+			<p>
+
+			</p>
+			<p>
+
+			</p>
+		</div>
+
+    {% endblock %}
+</body>>
